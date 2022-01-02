@@ -97,6 +97,8 @@ func AddComment(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+
+	w.Write([]byte(`{}`))
 }
 
 func AddReply(w http.ResponseWriter, r *http.Request) {
@@ -125,6 +127,8 @@ func AddReply(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+
+	w.Write([]byte(`{}`))
 }
 
 func addComment(c *Comment) error {
