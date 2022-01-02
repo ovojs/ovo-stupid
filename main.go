@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/microcosm-cc/bluemonday"
+	"github.com/rs/cors"
 	"github.com/tidwall/buntdb"
 )
 
@@ -269,5 +270,7 @@ func (s server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.ListenAndServe(":9090", new(server))
+	// TODO: use custom cors configuration
+	h := cors.Default().Handler(new(server))
+	http.ListenAndServe(":9090", h)
 }
